@@ -1,0 +1,15 @@
+create folder comp3104
+git init
+create file text.txt inside
+	comp3104 folder
+touch test.txt
+
+git status
+
+git commit -m "Your message"
+git config --global user.name "Rafed Fareed"
+git config --global user.email "ibardock@yahoo.ca"
+
+git remote add origin https://github.com/Feblio/comp3104-week2.git
+git branch -M master
+git push -u origin master
