@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create New User</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+</head>
+<body>
+<div>
+    <div>
+        <div>
+            <h2>User Registration</h2>
+            <form th:action="@{/save}" th:object="${user}" method="post">
+                <div>
+                    <div>
+                        <input type="hidden" th:field="*{id}">
+                    </div>
+                    <div>
+                    </div>
+                    <div>
+                        <label>firstName</label>
+                        <input type="text" required th:field="*{firstName}">
+                    </div>
+                    <div>
+                        <label>lastName</label>
+                        <input type="text" required th:field="*{lastName}">
+                    </div>
+                    <div >
+                        <label>address</label>
+                        <input type="text" required th:field="*{address}">
+                    </div>
+                    <div>
+                        <label>email</label>
+                        <input type="email" required th:field="*{email}">
+                    </div>
+                    <div>
+                        <label>password</label>
+                        <input type="password" required id="password" th:field="*{password}" pattern="(?=.).{6,12}">
+                    </div>
+                    <div>
+                        <label>confirm password</label>
+                        <input type="password" required id="confirmPassword" pattern="(?=.*).{6,12}">
+                    </div>
+                    <button type="submit" onclick="return Validate()">register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function Validate() {
+        let password = document.getElementById("password").value;
+        let confirmPassword = document.getElementById("confirmPassword").value;
+        if (password !== confirmPassword) {
+            alert("Passwords do not match");
+            return false;
+        }
+        return true;
+    }
+</script>
+</body>
+
+</html>
